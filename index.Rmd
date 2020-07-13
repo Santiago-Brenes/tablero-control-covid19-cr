@@ -312,8 +312,8 @@ plot_ly(data = df_general_pais,
                  yaxis = list(title = "Cantidad de Casos"),
                  xaxis = list(title = "Fecha"),
                  legend = list(x = 0.1, y = 0.9),
-                 hovermode = "compare")
-
+                 hovermode = "compare") %>% 
+                 config(locale = 'es')
 ```
 
 ### Tabla de cantidades de casos en cantones
