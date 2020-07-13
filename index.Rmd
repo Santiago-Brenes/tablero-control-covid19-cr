@@ -241,7 +241,9 @@ Row
 ### Hospitalizados {.value-box}
 ```{r}
 valueBox(value = paste(format(df_general_pais_ultima_fecha$hospital, big.mark = ","), "(+" , (
-df_general_pais_ultima_fecha$nue_hospi),")", "", sep = " "), 
+df_general_pais_ultima_fecha$nue_hospi),")", " (",
+                       round(100 * df_general_pais_ultima_fecha$hospital / df_general_pais_ultima_fecha$positivos, 1), 
+                       "%)", sep = " "), 
          caption = "Total de Hospitalizados", 
          icon = icono_hospitalizados,
          color = color_hospitalizados
@@ -326,9 +328,55 @@ Row
 
 ### Casos positivos {.value-box}
 ```{r}
-valueBox(value = paste(format(df_general_pais_ultima_fecha$positivos, big.mark = ","), "", sep = " "), 
+valueBox(value = paste(format(df_general_pais_ultima_fecha$positivos, big.mark = ","),  "(+" , (
+df_general_pais_ultima_fecha$nue_posi),")", "", sep = " "), 
          caption = "Total de Casos Positivos", 
          icon = icono_positivos, 
+         color = color_positivos
+)
+```
+
+
+### Hombres Positivos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$hom_posi, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$hom_posi / df_general_pais_ultima_fecha$positivos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Hombres Positivos", 
+         icon = icono_hombres, 
+         color = color_positivos
+)
+```
+
+### Mujeres Positivas {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$muj_posi, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$muj_posi / df_general_pais_ultima_fecha$positivos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Mujeres Positivas", 
+         icon = icono_mujeres, 
+         color = color_positivos
+)
+```
+
+### Adultos Mayores Positivos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$am_posi, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$am_posi / df_general_pais_ultima_fecha$positivos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Adultos Mayores Positivos", 
+         icon = icono_adultos_mayores, 
+         color = color_positivos
+)
+```
+
+### Menores de edad Positivos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$menor_posi, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$menor_posi / df_general_pais_ultima_fecha$positivos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de menores de edad Positivos", 
+         icon = icono_menores, 
          color = color_positivos
 )
 ```
@@ -410,9 +458,55 @@ Row
 
 ### Casos activos {.value-box}
 ```{r}
-valueBox(value = paste(format(df_general_pais_ultima_fecha$activos, big.mark = ","), "", sep = " "), 
+valueBox(value = paste(format(df_general_pais_ultima_fecha$activos, big.mark = ","),  "(+" , (
+df_general_pais_ultima_fecha$nue_posi),")", "", sep = " "), 
          caption = "Total de casos Activos", 
          icon = icono_activos, 
+         color = color_activos
+
+)
+```
+
+### Hombres Activos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$hom_acti, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$hom_acti / df_general_pais_ultima_fecha$activos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Hombres Activos", 
+         icon = icono_hombres, 
+         color = color_activos
+)
+```
+
+### Mujeres Activas {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$muj_acti, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$muj_acti / df_general_pais_ultima_fecha$activos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Mujeres Activas", 
+         icon = icono_mujeres, 
+         color = color_activos
+)
+```
+
+### Adultos Mayores Activos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$am_acti, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$am_acti / df_general_pais_ultima_fecha$activos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Adultos Mayores Activos", 
+         icon = icono_adultos_mayores, 
+         color = color_activos
+)
+```
+
+### Menores de edad Activos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$menor_acti, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$menor_acti / df_general_pais_ultima_fecha$activos, 1), 
+                       "%)" , sep = " "), 
+         caption = "Total de menores de edad Activos", 
+         icon = icono_menores, 
          color = color_activos
 )
 ```
@@ -494,9 +588,59 @@ Row
 
 ### Casos recuperados {.value-box}
 ```{r}
-valueBox(value = paste(format(df_general_pais_ultima_fecha$RECUPERADOS, big.mark = ","), "", sep = " "), 
+valueBox(value = paste(format(df_general_pais_ultima_fecha$RECUPERADOS, big.mark = ","), "(+" , (
+df_general_pais_ultima_fecha$NUE_RECUP),")", "", sep = " "), 
          caption = "Total de casos Recuperados", 
          icon = icono_recuperados, 
+         color = color_recuperados
+
+)
+```
+
+### Hombres Recuperados {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$HOM_RECUP, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$HOM_RECUP /df_general_pais_ultima_fecha$RECUPERADOS,
+1), 
+                       "%)", sep = " "), 
+         caption = "Total de Hombres Recuperados", 
+         icon = icono_hombres, 
+         color = color_recuperados
+)
+```
+
+### Mujeres Recuperadas {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$MUJ_RECUP, big.mark = ","),"(",
+                       round(100 * df_general_pais_ultima_fecha$MUJ_RECUP /df_general_pais_ultima_fecha$RECUPERADOS,
+1), 
+                       "%)", sep = " "), 
+         caption = "Total de Mujeres Recuperadas", 
+         icon = icono_mujeres, 
+         color = color_recuperados
+)
+```
+
+### Adultos Mayores Recuperados {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$AM_RECUP, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$AM_RECUP /df_general_pais_ultima_fecha$RECUPERADOS,
+1), 
+                       "%)", sep = " "), 
+         caption = "Total de Adultos Mayores Recuperados", 
+         icon = icono_adultos_mayores, 
+         color = color_recuperados
+)
+```
+
+### Menores de edad Recuperados {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$MENOR_RECUP, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$MENOR_RECUP /df_general_pais_ultima_fecha$RECUPERADOS,
+1), 
+                       "%)", sep = " "), 
+         caption = "Total de menores de edad Recuperados", 
+         icon = icono_menores, 
          color = color_recuperados
 )
 ```
@@ -578,9 +722,58 @@ Row
 
 ### Casos fallecidos {.value-box}
 ```{r}
-valueBox(value = paste(format(df_general_pais_ultima_fecha$fallecidos, big.mark = ","), "", sep = " "), 
+valueBox(value = paste(format(df_general_pais_ultima_fecha$fallecidos, big.mark = ","), "(+" , (
+df_general_pais_ultima_fecha$nue_falleci),")","", sep = " "), 
          caption = "Total de casos Fallecidos", 
          icon = icono_fallecidos, 
+         color = color_fallecidos
+)
+```
+
+### Hombres Fallecidos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$hom_fall, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$hom_fall /df_general_pais_ultima_fecha$fallecidos,
+1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Hombres Fallecidos", 
+         icon = icono_hombres, 
+         color = color_fallecidos
+)
+```
+
+### Mujeres Fallecidas {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$muj_fall, big.mark = ","), "(",
+                       round(100 * df_general_pais_ultima_fecha$muj_fall /df_general_pais_ultima_fecha$fallecidos,
+1), 
+                       "%)", sep = " "), 
+         caption = "Total de Mujeres Fallecidas", 
+         icon = icono_mujeres, 
+         color = color_fallecidos
+)
+```
+
+### Adultos Mayores Fallecidos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$am_fall, big.mark = ","),"(",
+                       round(100 * df_general_pais_ultima_fecha$am_fall/df_general_pais_ultima_fecha$fallecidos,
+1), 
+                       "%)" , sep = " "), 
+         caption = "Total de Adultos Mayores Fallecidos", 
+         icon = icono_adultos_mayores, 
+         color = color_fallecidos
+)
+```
+
+### Menores de edad Fallecidos {.value-box}
+```{r}
+valueBox(value = paste(format(df_general_pais_ultima_fecha$menor_fall, big.mark = ","),"(",
+                       round(100 * df_general_pais_ultima_fecha$menor_fall /df_general_pais_ultima_fecha$fallecidos,
+1), 
+                       "%)" , sep = " "), 
+         caption = "Total de menores de edad Fallecidos", 
+         icon = icono_menores, 
          color = color_fallecidos
 )
 ```
