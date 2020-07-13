@@ -44,6 +44,10 @@ icono_nuevos_positivos <- 'fa fa-certificate'
 icono_hospitalizados <- 'fa fa-hospital-o'
 icono_salon <- 'fa fa-exclamation-triangle'
 icono_uci <- 'fa fa-ambulance'
+icono_hombres <- 'fa fa-mars'
+icono_mujeres <- 'fa fa-venus'
+icono_adultos_mayores <- 'fa fa-blind'
+icono_menores <- 'fa fa-child'
 
 #--------------- Otros parámetros -----------------
 
@@ -406,7 +410,7 @@ Row
 
 ### Casos activos {.value-box}
 ```{r}
-valueBox(value = paste(format(df_general_pais_ultima_fecha$positivos, big.mark = ","), "", sep = " "), 
+valueBox(value = paste(format(df_general_pais_ultima_fecha$activos, big.mark = ","), "", sep = " "), 
          caption = "Total de casos Activos", 
          icon = icono_activos, 
          color = color_activos
@@ -490,7 +494,7 @@ Row
 
 ### Casos recuperados {.value-box}
 ```{r}
-valueBox(value = paste(format(df_general_pais_ultima_fecha$recuperados, big.mark = ","), "", sep = " "), 
+valueBox(value = paste(format(df_general_pais_ultima_fecha$RECUPERADOS, big.mark = ","), "", sep = " "), 
          caption = "Total de casos Recuperados", 
          icon = icono_recuperados, 
          color = color_recuperados
@@ -504,7 +508,7 @@ Row {data-width=400}
 ```{r}
 
 paleta_greens <- colorBin(palette = "Greens", 
-                        domain = sf_activos_cantones_ultima_fecha$recuperados,
+                        domain = sf_recuperados_cantones_ultima_fecha$recuperados,
                         bins = 10
                )
 
