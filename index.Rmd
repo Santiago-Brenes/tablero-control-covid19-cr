@@ -176,6 +176,16 @@ sf_fallecidos_cantones_ultima_fecha <-
   left_join(sf_cantones, df_fallecidos_cantones_ultima_fecha, by = c('cod_canton')) %>%
   arrange(desc(fallecidos))
 
+# Data Frame y LeftJoin del la tabla de cantidades de caosos en cantones 
+
+df_positivos_activos_cantones_ultima_actualizacion <- left_join(df_activos_cantones_ultima_fecha, df_positivos_cantones_ultima_fecha, by = c( "cod_canton"))
+
+df_recuperados_fallecidos_cantones_ultima_actualizacion  <- left_join(df_recuperados_cantones_ultima_fecha, df_fallecidos_cantones_ultima_fecha, by = c( "cod_canton"))
+
+df_total_cantones_ultima_actualizacion  <- left_join(df_positivos_activos_cantones_ultima_actualizacion, df_recuperados_fallecidos_cantones_ultima_actualizacion)
+
+sf_total_cantones_ultima_actualizacion <- 
+  left_join(sf_cantones, df_total_cantones_ultima_actualizacion, by = c('cod_canton'))
 
 ```
 
@@ -303,12 +313,13 @@ plot_ly(data = df_general_pais,
                  xaxis = list(title = "Fecha"),
                  legend = list(x = 0.1, y = 0.9),
                  hovermode = "compare")
+
 ```
 
 ### Tabla de cantidades de casos en cantones
 ```{r}
-st_drop_geometry(sf_positivos_cantones_ultima_fecha) %>% 
-  select(Provincia = provincia, Canton = canton, Positivos = positivos) %>%
+st_drop_geometry(sf_total_cantones_ultima_actualizacion) %>% 
+  select(Provincia = provincia, Canton = canton, Positivos = positivos, Activos = activos, Recuperados = recuperados, Fallecidos = fallecidos) %>%
   DT::datatable(rownames = FALSE,
                 options = list(searchHighlight = TRUE, 
                                language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
