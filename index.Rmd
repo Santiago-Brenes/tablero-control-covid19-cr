@@ -327,7 +327,7 @@ st_drop_geometry(sf_total_cantones_ultima_actualizacion) %>%
   )
 ```
 
-Casos positivos
+Casos Positivos
 =======================================================================
 Row {data-height=1}
 -----------------------------------------------------------------------
@@ -337,7 +337,7 @@ Row {data-height=1}
 Row
 -----------------------------------------------------------------------
 
-### Casos positivos {.value-box}
+### Casos Positivos {.value-box}
 ```{r}
 valueBox(value = paste(format(df_general_pais_ultima_fecha$positivos, big.mark = ","),  "(+" , (
 df_general_pais_ultima_fecha$nue_posi),")", "", sep = " "), 
@@ -457,7 +457,7 @@ layout(yaxis = list(title = "Cantidad de Casos Positivos"),
 ```
 
 
-Casos activos
+Casos Activos
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
@@ -587,7 +587,7 @@ layout(yaxis = list(title = "Cantidad de Casos Activos"),
 ```
 
 
-Casos recuperados
+Casos Recuperados
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
@@ -721,7 +721,7 @@ layout(yaxis = list(title = "Cantidad de Casos Recuperados"),
 ```
 
 
-Casos fallecidos
+Casos Fallecidos
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
@@ -852,10 +852,3 @@ layout(yaxis = list(title = "Cantidad de Casos Fallecidos"),
                 )
 )
 ```
-
-Casos en distritos
-=======================================================================
-Row {data-height=10}
------------------------------------------------------------------------
-### **Última actualización de datos realizada el `r  df_general_pais_ultima_fecha$FECHA` con base en los [datos publicados por el Ministerio de Salud de Costa Rica](http://geovision.uned.ac.cr/oges/)**.
-
